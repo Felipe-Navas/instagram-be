@@ -2,10 +2,12 @@ import { Router } from 'express';
 import { body } from 'express-validator';
 
 import { validateFields } from '../middlewares/validate-fields';
+import { login, register } from '../controllers';
 
 const router = Router();
 
-// router.get('/get', getController);
+router.post('/login', login);
+router.post('/register', register);
 // router.post(
 //  '/createNode',
 //  [
