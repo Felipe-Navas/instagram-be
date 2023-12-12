@@ -5,11 +5,9 @@ import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
 import { User } from '../models/User';
-// import protectedResource from '../middleware/protectedResource';
+import { JWT_SECRET } from '../config';
 
 const UserModel = mongoose.model<User>('UserModel');
-
-const JWT_SECRET = process.env.SECRET_JWT_SEED || Math.random().toString();
 
 export const login = async (req: Request, res: Response) => {
   const { email, password }: User = req.body;
