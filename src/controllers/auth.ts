@@ -1,13 +1,10 @@
 /* eslint-disable promise/no-nesting */
-import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { User } from '../models/User';
+import { User, UserModel } from '../models/User';
 import { JWT_SECRET } from '../config';
-
-const UserModel = mongoose.model<User>('UserModel');
 
 export const login = async (req: Request, res: Response) => {
   const { email, password }: User = req.body;
@@ -18,12 +15,12 @@ export const login = async (req: Request, res: Response) => {
       .json({ error: 'One or more mandatory field is empty' });
   }
   UserModel.findOne({ email })
-    .then((dbUser) => {
+    .then(async (dbUser) => {
       if (!dbUser) {
         return res.status(400).json({ error: 'Invalid credentials!' });
       }
 
-      const didMatch = isPasswordValid(password, dbUser.password);
+      const didMatch = await isPasswordValid(password, dbUser.password);
 
       if (didMatch) {
         const jwtToken = jwt.sign({ _id: dbUser._id }, JWT_SECRET);
@@ -59,14 +56,14 @@ export const register = async (req: Request, res: Response) => {
   }
 
   UserModel.findOne({ email })
-    .then((dbUser) => {
+    .then(async (dbUser) => {
       if (dbUser) {
         return res
           .status(500)
           .json({ error: 'User with email already exist.' });
       }
 
-      const hashedPassword = hashPassword(password);
+      const hashedPassword = await hashPassword(password);
 
       if (hashedPassword) {
         const user = new UserModel({
@@ -93,26 +90,10 @@ export const register = async (req: Request, res: Response) => {
     });
 };
 
-const isPasswordValid = (password: string, userPassword: string): boolean => {
-  bcrypt
-    .compare(password, userPassword)
-    .then((didMatch) => {
-      return didMatch;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  return false;
-};
+const isPasswordValid = (
+  password: string,
+  userPassword: string
+): Promise<boolean> => bcrypt.compare(password, userPassword);
 
-const hashPassword = (password: string): string | undefined => {
-  bcrypt
-    .hash(password, 16)
-    .then((hashedPassword) => {
-      return hashedPassword;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  return undefined;
-};
+const hashPassword = async (password: string): Promise<string> =>
+  bcrypt.hash(password, 16);

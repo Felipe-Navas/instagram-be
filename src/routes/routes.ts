@@ -6,23 +6,52 @@ import { login, register } from '../controllers';
 
 const router = Router();
 
-router.post('/login', login);
-router.post('/register', register);
-// router.post(
-//  '/createNode',
-//  [
-//    body('name', 'Field Name is not valid')
-//      .trim()
-//      .isString()
-//      .notEmpty()
-//      .escape(),
-//    body('parentId', 'Field Parent ID is not valid')
-//      .isInt()
-//      .notEmpty()
-//      .escape(),
-//    validateFields
-//  ],
-//  createNodeController
-// );
+router.post(
+  '/login',
+  [
+    body('email', 'Field Email is not valid')
+      .trim()
+      .isEmail()
+      .notEmpty()
+      .escape(),
+    body('password', 'Field Password is not valid')
+      .trim()
+      .isString()
+      .isLength({ min: 6 })
+      .escape(),
+    validateFields
+    // protectedResource
+  ],
+  login
+);
+
+router.post(
+  '/register',
+  [
+    body('email', 'Field Email is not valid')
+      .trim()
+      .isEmail()
+      .notEmpty()
+      .escape(),
+    body('password', 'Field Password is not valid')
+      .trim()
+      .isString()
+      .isLength({ min: 6 })
+      .escape(),
+    body('fullName', 'Field Full Name is not valid')
+      .trim()
+      .isString()
+      .notEmpty()
+      .escape(),
+    body('profilePicUrl', 'Field Password is not valid')
+      .trim()
+      .optional()
+      .isString()
+      .isLength({ min: 6 })
+      .escape(),
+    validateFields
+  ],
+  register
+);
 
 export default router;
