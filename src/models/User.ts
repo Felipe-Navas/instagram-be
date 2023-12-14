@@ -1,15 +1,8 @@
 import mongoose from 'mongoose';
 
-const { ObjectId } = mongoose.Schema.Types;
+import { User } from '../types/types';
 
-export interface User {
-  fullName: string;
-  email: string;
-  password: string;
-  profilePicUrl?: string;
-  followers: (typeof mongoose.Schema.Types.ObjectId)[];
-  following: (typeof mongoose.Schema.Types.ObjectId)[];
-}
+const { ObjectId } = mongoose.Schema.Types;
 
 const userSchema = new mongoose.Schema<User>({
   fullName: {
