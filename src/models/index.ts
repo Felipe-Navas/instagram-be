@@ -1,5 +1,3 @@
-import { PostModel } from './Post';
-import { UserModel } from './User';
-import Server from './Server';
-
-export { PostModel, UserModel, Server };
+export { PostModel } from './Post';
+export { UserModel } from './User';
+export { Server } from './Server';

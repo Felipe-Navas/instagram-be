@@ -2,16 +2,16 @@ import express, { Application } from 'express';
 import cors from 'cors';
 
 import { dbConnection } from '../database/connection';
-import router from '../routes/routes';
+import { router } from '../routes/routes';
 
-class Server {
+export class Server {
   app: Application;
   private port: string;
   private apiPath = '/api';
 
   constructor() {
     this.app = express();
-    this.port = process.env.PORT || '000';
+    this.port = process.env.PORT || '4000';
 
     this.dbConnection();
     this.middlewares();
@@ -42,5 +42,3 @@ class Server {
     });
   }
 }
-
-export default Server;

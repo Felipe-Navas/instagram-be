@@ -2,9 +2,9 @@ import { Router } from 'express';
 import { body } from 'express-validator';
 
 import { validateFields, protectedResource } from '../middlewares';
-import { login, register } from '../controllers';
+import { getUser, login, register } from '../controllers';
 
-const router = Router();
+export const router = Router();
 
 router.post(
   '/login',
@@ -54,4 +54,4 @@ router.post(
   register
 );
 
-export default router;
+router.get('/user/:userId', protectedResource, getUser);

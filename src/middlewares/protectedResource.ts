@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 import { JWT_SECRET } from '../config';
-import { UserModel } from '../models/User';
+import { UserModel } from '../models';
 import { User } from '../types/types';
 
 interface UserReq extends Request {

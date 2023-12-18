@@ -1,4 +1,2 @@
-import { protectedResource } from './protectedResource';
-import { validateFields } from './validate-fields';
-
-export { protectedResource, validateFields };
+export { protectedResource } from './protectedResource';
+export { validateFields } from './validate-fields';

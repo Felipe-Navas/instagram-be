@@ -1,3 +1,2 @@
-import { login, register } from './auth';
-
-export { login, register };
+export { login, register } from './auth';
+export { getUser } from './user';

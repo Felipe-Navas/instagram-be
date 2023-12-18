@@ -3,8 +3,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { User, UserModel } from '../models/User';
+import { UserModel } from '../models';
 import { JWT_SECRET } from '../config';
+import { User } from '../types/types';
 
 export const login = async (req: Request, res: Response) => {
   const { email, password }: User = req.body;
@@ -59,7 +60,7 @@ export const register = async (req: Request, res: Response) => {
     .then(async (dbUser) => {
       if (dbUser) {
         return res
-          .status(500)
+          .status(400)
           .json({ error: 'User with email already exist.' });
       }
 
