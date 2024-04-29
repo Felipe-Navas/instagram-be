@@ -1,34 +1,64 @@
-# README #
+# Instagram Be
 
-This README would normally document whatever steps are necessary to get the application up and running.
+A TypeScript Rest Server in Node.js for an Instragram App
 
-### What is this repository for? ###
+## Description
 
-* Quick summary
-    * A TypeScript Rest Server in Node.js for an Instragram App
-* Version: 1.0
-* [Author](https://www.linkedin.com/in/felipenavaslederhos)
+A TypeScript Rest Server in Node.js for an Instragram App
 
-### How do I get set up? ###
+## Demo
 
-* Summary of set up
-    * ```npm install```
+You can explore a live version of Instagram Be at the following URL:
 
-* How to run the app?
-    * ```npm start```
+https://Felipe-Navas.github.io/instagram-fe
 
-## Contribution guidelines
+## Getting Started
 
-- Writing tests
-- Code review
-- Other guidelines
+### Dependencies
 
-## Who do I talk to?
+- `npm`
+- `node`
 
-- Repo owner or admin
-- Other community or team contact
+### Installing
 
-### Stack used in this repo ###
+- Clone the repository and install dependencies:
 
-* Node v16.15.0
-* npm v8.5.5
+```
+git clone https://github.com/Felipe-Navas/instagram-be.git && cd instagram-be && npm install
+```
+
+### Executing program
+
+```
+npm start
+```
+
+Preview of the main screen:
+
+<img width="350" src="assets/MainPreview.png" alt="Preview of the main screen" />
+
+### Running tests
+
+```
+npm test
+```
+
+Preview of the console after running the tests:
+
+<img width="350" src="assets/TestsPreview.png" alt="Preview of the console after running the tests" />
+
+## Authors
+
+- [Felipe Navas](https://www.linkedin.com/in/felipenavaslederhos) - [Email](mailto:felipenavas.itec@gmail.com?subject=[GitHub]%instagram-be)
+
+## Contributing
+
+1. Fork it (<https://github.com/Felipe-Navas/instagram-be/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the [MIT License] - see the LICENSE file for details

@@ -1,7 +1,7 @@
 {
   "name": "instagram-be",
   "version": "1.0.0",
-  "description": "",
+  "description": "A TypeScript Rest Server in Node.js for an Instragram App",
   "main": "./src/index.ts",
   "scripts": {
     "test": "jest --watchAll --detectOpenHandles",
@@ -14,13 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/Felipe-Navas/instagram-be.git"
   },
-  "keywords": [],
   "author": "https://www.linkedin.com/in/felipenavaslederhos",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Felipe-Navas/instagram-be/issues"
   },
-  "homepage": "https://github.com/Felipe-Navas/instagram-be#readme",
+  "homepage": "https://Felipe-Navas.github.io/instagram-be",
   "devDependencies": {
     "@shopify/eslint-plugin": "^43.0.0",
     "@types/bcryptjs": "^2.4.6",
