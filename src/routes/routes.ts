@@ -2,7 +2,13 @@ import { Router } from 'express';
 import { body } from 'express-validator';
 
 import { validateFields, protectedResource } from '../middlewares';
-import { getUser, login, register } from '../controllers';
+import {
+  getUser,
+  login,
+  register,
+  followUser,
+  unfollowUser
+} from '../controllers';
 
 export const router = Router();
 
@@ -55,3 +61,6 @@ router.post(
 );
 
 router.get('/user/:userId', protectedResource, getUser);
+
+router.put('/follow', protectedResource, followUser);
+router.put('/unfollow', protectedResource, unfollowUser);

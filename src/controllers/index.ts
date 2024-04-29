@@ -1,2 +1,2 @@
 export { login, register } from './auth';
-export { getUser } from './user';
+export { getUser, followUser, unfollowUser } from './user';

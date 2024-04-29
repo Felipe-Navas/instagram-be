@@ -1,6 +1,8 @@
+import { Request } from 'express';
 import mongoose from 'mongoose';
 
 export interface User {
+  _id: typeof mongoose.Schema.Types.ObjectId;
   fullName: string;
   email: string;
   password: string;
@@ -19,4 +21,8 @@ export interface Post {
     commentedBy: typeof mongoose.Schema.Types.ObjectId;
   }[];
   author: typeof mongoose.Schema.Types.ObjectId;
+}
+
+export interface UserReq extends Request {
+  dbUser: User;
 }

@@ -3,11 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import { JWT_SECRET } from '../config';
 import { UserModel } from '../models';
-import { User } from '../types/types';
-
-interface UserReq extends Request {
-  dbUser: User;
-}
+import { User, UserReq } from '../types/types';
 
 export const protectedResource = (
   req: Request,
